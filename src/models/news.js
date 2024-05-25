@@ -18,7 +18,6 @@ const createMatchNews = async (news) => {
 const createTourNews = async (news) => {
     const { title, description, tourId } = news;
     const { sportId } = await getSportIdForTour(tourId);
-        console.log(sportId);
         const statement = `
             INSERT INTO news (title, description, matchId, tourId, sportId)
             VALUES (?, ?, ?, ?, ?)

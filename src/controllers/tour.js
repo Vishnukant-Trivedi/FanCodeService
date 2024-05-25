@@ -7,7 +7,10 @@ const getAllTours = async () => {
 const getMatchesByTourName = async params => {
     let { name } = params;
     if (!name) {
-        throw new Error('Missing required parameter: name');
+        return {
+            error: 'Missing required parameter: name',
+            status: 400
+        };
     }
     return await Tour.getMatchesByTourName(params);
 }
