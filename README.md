@@ -245,7 +245,16 @@ Approach -
 
 ### Response
 ```
-"Created Successfully"
+{
+    "id": 6,
+    "title": "The Match between LSG vs KXIP",
+    "description": " That was a best Match Ever",
+    "matchId": 1,
+    "tourId": 1,
+    "sportId": 1,
+    "recUpdatedAt": "2024-05-25T11:36:41.000Z",
+    "createdAt": "2024-05-25T11:36:41.000Z"
+}
 ```
 
 ## Create a new News with 'tourId'
@@ -262,7 +271,16 @@ Approach -
 
 ### Response
 ```
-"Created Successfully"
+{
+    "id": 6,
+    "title": "The Match between LSG vs KXIP",
+    "description": " That was a best Match Ever",
+    "matchId": null,
+    "tourId": 3,
+    "sportId": 1,
+    "recUpdatedAt": "2024-05-25T11:36:41.000Z",
+    "createdAt": "2024-05-25T11:36:41.000Z"
+}
 ```
 
 
