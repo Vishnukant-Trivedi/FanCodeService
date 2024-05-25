@@ -9,8 +9,6 @@ const pool = mysql.createPool({
 });
 
 function query(sql, args) {
-  console.log(sql);
-  console.log(args);
   return new Promise((resolve, reject) => {
     pool.query(sql, args, (err, rows) => {
       if (err)

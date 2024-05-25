@@ -35,7 +35,8 @@ create table if not exists mydb.matches
     foreign key (tourId) references tours(id)
 );
 
-CREATE TABLE IF not EXISTS mydb.news (
+create table if not exists mydb.news 
+(
     id int auto_increment not null primary key,
     title varchar(255) not null,
     description text not null,
