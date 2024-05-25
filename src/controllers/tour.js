@@ -9,7 +9,6 @@ const getMatchesByTourName = async params => {
     if (!name) {
         throw new Error('Missing required parameter: name');
     }
-
     return await Tour.getMatchesByTourName(params);
 }
 
