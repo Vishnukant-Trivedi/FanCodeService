@@ -1,6 +1,10 @@
 const News = require('../models/news');
 
 const createNews = async newsBody => {
+    const {title, description} = newsBody;
+    if (!title || !description) {
+        throw new Error('Title and description are required.');
+    }
     const { matchId, tourId} = newsBody;
     if (matchId) {
         return await News.createMatchNews(newsBody);
@@ -8,8 +12,7 @@ const createNews = async newsBody => {
     else if (tourId) {
         return await News.createTourNews(newsBody);
     }
-
-    return "Please send matchId or tourId to create the news";
+    throw new Error('Please send matchId or tourId to create the news');
 }
 
 const getNewsByMatchId = async matchId => {
