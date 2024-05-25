@@ -8,8 +8,11 @@ const createMatchNews = async (news) => {
         VALUES (?, ?, ?, ?, ?)
     `;
     const parameters = [title, description, matchId, tourId, sportId];
-    await mysql.query(statement, parameters);
-    return 'Created Successfully'
+    const result = await mysql.query(statement, parameters);
+    const newsId = result.insertId;
+    const [insertedNews] = await mysql.query('SELECT * FROM news WHERE id = ?', [newsId]);
+
+    return insertedNews;
 };
 
 const createTourNews = async (news) => {
@@ -21,8 +24,11 @@ const createTourNews = async (news) => {
             VALUES (?, ?, ?, ?, ?)
         `;
         const parameters = [title, description, null, tourId, sportId];
-        await mysql.query(statement, parameters);
-        return 'Created Successfully'
+        const result = await mysql.query(statement, parameters);
+        const newsId = result.insertId;
+        const [insertedNews] = await mysql.query('SELECT * FROM news WHERE id = ?', [newsId]);
+
+    return insertedNews;
 };
 
 const getNewsByMatchId = async (matchId) => {
