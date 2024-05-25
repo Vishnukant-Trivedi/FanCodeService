@@ -78,7 +78,6 @@ const teardownTestDatabase = async () => {
      await mysql.query('DELETE FROM mydb.matches WHERE name IN (\'AA vs BB\', \'CC vs DD\')');
      await mysql.query('DELETE FROM mydb.tours WHERE name IN (\'Indian Dhaba League, 2023\', \'India Supera League, 2023\')');
      await mysql.query('DELETE FROM mydb.sports WHERE name IN (\'BaseBall\', \'HandBall\')');
-    
 }
 
 
