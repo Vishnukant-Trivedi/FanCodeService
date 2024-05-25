@@ -35,6 +35,21 @@ create table if not exists mydb.matches
     foreign key (tourId) references tours(id)
 );
 
+CREATE TABLE IF not EXISTS mydb.news (
+    id int auto_increment not null primary key,
+    title varchar(255) not null,
+    description text not null,
+    matchId int null,
+    tourId int not null,
+    sportId int not null,
+    recUpdatedAt timestamp not null default CURRENT_timestamp on update CURRENT_timestamp,
+    createdAt timestamp not null default CURRENT_timestamp,
+    foreign key (matchId) references matches(id),
+    foreign key (tourId) references tours(id),
+    foreign key (sportId) references sports(id)
+);
+
+
 CREATE INDEX idx_tours_name ON mydb.tours(name);
 CREATE INDEX idx_matches_tourId ON mydb.matches(tourId);
 
@@ -58,3 +73,9 @@ insert ignore into mydb.matches (name, tourId, format, startTime, endTime) value
 insert ignore into mydb.matches (name, tourId, format, startTime, endTime) values ('IND vs WI', 3, 'ODI', '2023-06-12 10:00:00', '2023-06-12 23:00:00');
 insert ignore into mydb.matches (name, tourId, format, startTime, endTime) values ('IND vs WI', 3, 'ODI', '2023-06-14 10:00:00', '2023-06-14 23:00:00');
 insert ignore into mydb.matches (name, tourId, format, startTime, endTime) values ('KER vs JFC', 4, 'soccer', '2022-04-09 18:00:00', '2022-04-09 23:00:00');
+
+insert ignore into mydb.news (title, description, matchId, tourId, sportId) VALUES 
+('Exciting Match Between GT and RCB', 'Details about the match...', 1, 1, 1),
+('IPL 2023 Overview', 'A summary of the Indian Premier League 2023...', NULL, 1, 1),
+('Football League Updates', 'Latest news on the India Super League...', NULL, 2, 2);
+
